@@ -2,6 +2,7 @@ package glassmaker.testmod;
 
 import glassmaker.testmod.block.BlockTest;
 import glassmaker.testmod.item.ItemTest;
+import glassmaker.testmod.item.TestItemLayered;
 import glassmaker.testmod.proxy.IProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -23,6 +24,7 @@ public class TestMod {
 
     public static Block block;
     public static Item item;
+    public static Item itemLayered;
 
     @Instance(TestMod.MODID)
     public static TestMod instance;
@@ -34,6 +36,9 @@ public class TestMod {
     public void preinit(FMLPreInitializationEvent event) {
         item = new ItemTest();
         GameRegistry.registerItem(item, "test_item");
+
+        itemLayered = new TestItemLayered();
+        GameRegistry.registerItem(itemLayered, "test_item_layered");
 
         block = new BlockTest();
         block = GameRegistry.registerBlock(block, "test_block");

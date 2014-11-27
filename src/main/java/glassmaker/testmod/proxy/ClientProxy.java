@@ -22,6 +22,8 @@ public class ClientProxy implements IProxy {
 
         itemModelMesher.register(TestMod.item, 0, new ModelResourceLocation("testmod:test_item", "inventory"));
 
+        itemModelMesher.register(TestMod.itemLayered, 0, new ModelResourceLocation("testmod:test_item_layered", "inventory"));
+
     }
 
 }

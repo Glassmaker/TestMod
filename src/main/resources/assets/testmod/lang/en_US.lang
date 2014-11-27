@@ -1,2 +1,3 @@
 tile.testmod.test.block.name=Test Block
 item.testmod.test.item.name=Test Item
+item.testmod.test.item.layered.name=Test Item Layered
