@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "normal": [
+            { "model": "testmod:test_block" },
+            { "model": "testmod:test_block_mirrored" },
+            { "model": "testmod:test_block", "y": 180 },
+            { "model": "testmod:test_block_mirrored", "y": 180 }
+        ]
+    }
+}
