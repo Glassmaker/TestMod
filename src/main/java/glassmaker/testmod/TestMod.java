@@ -2,7 +2,8 @@ package glassmaker.testmod;
 
 import glassmaker.testmod.block.BlockTest;
 import glassmaker.testmod.item.ItemTest;
-import glassmaker.testmod.item.TestItemLayered;
+import glassmaker.testmod.item.ItemTestLayered;
+import glassmaker.testmod.item.ItemTestVariant;
 import glassmaker.testmod.proxy.IProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -25,6 +26,7 @@ public class TestMod {
     public static Block block;
     public static Item item;
     public static Item itemLayered;
+    public static Item itemVariant;
 
     @Instance(TestMod.MODID)
     public static TestMod instance;
@@ -37,8 +39,11 @@ public class TestMod {
         item = new ItemTest();
         GameRegistry.registerItem(item, "test_item");
 
-        itemLayered = new TestItemLayered();
+        itemLayered = new ItemTestLayered();
         GameRegistry.registerItem(itemLayered, "test_item_layered");
+        
+        itemVariant = new ItemTestVariant();
+        GameRegistry.registerItem(itemVariant, "test_item_variant");
 
         block = new BlockTest();
         block = GameRegistry.registerBlock(block, "test_block");

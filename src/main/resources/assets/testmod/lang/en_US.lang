@@ -1,3 +1,7 @@
 tile.testmod.test.block.name=Test Block
 item.testmod.test.item.name=Test Item
 item.testmod.test.item.layered.name=Test Item Layered
+item.testmod.test.item.variant.0.name=Test Item Variant 0
+item.testmod.test.item.variant.1.name=Test Item Variant 1
+item.testmod.test.item.variant.2.name=Test Item Variant 2
+item.testmod.test.item.variant.3.name=Test Item Variant 3
