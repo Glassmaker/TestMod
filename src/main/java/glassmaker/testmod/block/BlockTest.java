@@ -6,8 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockTest extends Block {
 
-    public BlockTest()
-    {
+    public BlockTest() {
         super(Material.rock);
         this.setUnlocalizedName("testmod.test.block");
         this.setCreativeTab(CreativeTabs.tabBlock);
