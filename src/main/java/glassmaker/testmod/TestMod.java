@@ -7,6 +7,7 @@ import glassmaker.testmod.item.ItemTestVariant;
 import glassmaker.testmod.proxy.IProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -36,17 +37,19 @@ public class TestMod {
 
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-        item = new ItemTest();
-        GameRegistry.registerItem(item, "test_item");
+        item = new ItemTest().setRegistryName("test_item");
+        GameRegistry.register(item);
 
-        itemLayered = new ItemTestLayered();
-        GameRegistry.registerItem(itemLayered, "test_item_layered");
+        itemLayered = new ItemTestLayered().setRegistryName("test_item_layered");
+        GameRegistry.register(itemLayered);
         
-        itemVariant = new ItemTestVariant();
-        GameRegistry.registerItem(itemVariant, "test_item_variant");
+        itemVariant = new ItemTestVariant().setRegistryName("test_item_variant");
+        GameRegistry.register(itemVariant);
 
-        block = new BlockTest();
-        block = GameRegistry.registerBlock(block, "test_block");
+        block = new BlockTest().setRegistryName("test_block");
+        block = GameRegistry.register(block);
+        Item itemBlock = new ItemBlock(block).setRegistryName("test_block");
+        GameRegistry.register(itemBlock);
     }
 
     @EventHandler
