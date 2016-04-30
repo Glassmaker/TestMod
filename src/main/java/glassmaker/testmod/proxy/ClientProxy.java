@@ -10,6 +10,7 @@ public class ClientProxy implements IProxy {
     @Override
     public void registerRenderers() {
         
+        // Normal Block.
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(TestMod.block), 0, new ModelResourceLocation("testmod:test_block", "inventory"));
 
         // Normal item.
