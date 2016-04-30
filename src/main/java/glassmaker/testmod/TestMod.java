@@ -50,11 +50,13 @@ public class TestMod {
         block = GameRegistry.register(block);
         Item itemBlock = new ItemBlock(block).setRegistryName("test_block");
         GameRegistry.register(itemBlock);
+        
+        proxy.registerRenderers();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.registerRenderers();
+        
     }
 
     @EventHandler
