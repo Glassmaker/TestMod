@@ -10,6 +10,8 @@ public class BlockTest extends Block {
         super(Material.rock);
         this.setUnlocalizedName("testmod.test.block");
         this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setHarvestLevel("pickaxe", 1);
+        this.setResistance(1.3F);
     }
 
 }
