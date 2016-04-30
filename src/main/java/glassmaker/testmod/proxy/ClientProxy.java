@@ -2,10 +2,11 @@ package glassmaker.testmod.proxy;
 
 import glassmaker.testmod.TestMod;
 import net.minecraft.client.renderer.ItemModelMesher;
-import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.client.resources.model.ModelBakery;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.FMLClientHandler;
 
 public class ClientProxy implements IProxy {
@@ -14,7 +15,7 @@ public class ClientProxy implements IProxy {
     public void registerRenderers() {
 
         // Normal Block.
-        ModelBakery.addVariantName(Item.getItemFromBlock(TestMod.block), "testmod:test_block");
+        ModelBakery.registerItemVariants(Item.getItemFromBlock(TestMod.block), new ResourceLocation("testmod:test_block"));
 
         RenderItem renderItem = FMLClientHandler.instance().getClient().getRenderItem();
         ItemModelMesher itemModelMesher = renderItem.getItemModelMesher();
@@ -31,11 +32,11 @@ public class ClientProxy implements IProxy {
         // Items will always try to load assets/modid/models/item/item_registered_name.json
         // item_registered_name is The same name used in GameRegistry.registerItem().
         // To avoid duplication of JSON files, I registered the first variant as the same of the default lookup.
-        ModelBakery.addVariantName(TestMod.itemVariant, "testmod:test_item_variant");
+        ModelBakery.registerItemVariants(TestMod.itemVariant, new ResourceLocation("testmod:test_item_variant"));
         itemModelMesher.register(TestMod.itemVariant, 0, new ModelResourceLocation("testmod:test_item_variant", "inventory"));
         
         for (int i = 1; i < 4; i++) {
-            ModelBakery.addVariantName(TestMod.itemVariant, "testmod:test_item_variant_" + i);
+            ModelBakery.registerItemVariants(TestMod.itemVariant, new ResourceLocation("testmod:test_item_variant_" + i));
             itemModelMesher.register(TestMod.itemVariant, i, new ModelResourceLocation("testmod:test_item_variant_" + i, "inventory"));
         }
     }
