@@ -1,6 +1,7 @@
 package glassmaker.testmod;
 
 import glassmaker.testmod.block.BlockTest;
+import glassmaker.testmod.block.BlockTestWithDirection;
 import glassmaker.testmod.item.ItemTest;
 import glassmaker.testmod.item.ItemTestLayered;
 import glassmaker.testmod.item.ItemTestVariant;
@@ -16,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.apache.logging.log4j.Logger;
 
 @Mod(modid = TestMod.MODID, name = TestMod.MODNAME, version = TestMod.VERSION)
 public class TestMod {
@@ -25,6 +27,7 @@ public class TestMod {
     public static final String VERSION = "1.0.0";
 
     public static Block block;
+    public static Block directionBlock;
     public static Item item;
     public static Item itemLayered;
     public static Item itemVariant;
@@ -35,8 +38,13 @@ public class TestMod {
     @SidedProxy(clientSide = "glassmaker.testmod.proxy.ClientProxy", serverSide = "glassmaker.testmod.proxy.CommonProxy")
     public static IProxy proxy;
 
+    public static Logger log;
+
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
+
+        log = event.getModLog();
+
         item = new ItemTest().setRegistryName("test_item");
         GameRegistry.register(item);
 
@@ -50,6 +58,11 @@ public class TestMod {
         block = GameRegistry.register(block);
         Item itemBlock = new ItemBlock(block).setRegistryName("test_block");
         GameRegistry.register(itemBlock);
+        
+        directionBlock = new BlockTestWithDirection().setRegistryName("test_direction_block");
+        directionBlock = GameRegistry.register(directionBlock);
+        Item itemDirectionBlock = new ItemBlock(directionBlock).setRegistryName("test_direction_block");
+        GameRegistry.register(itemDirectionBlock);
         
         proxy.registerRenderers();
     }
