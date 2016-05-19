@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemTestVariant extends Item {
     public ItemTestVariant() {
-        this.setCreativeTab(CreativeTabs.tabDecorations);
+        this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setUnlocalizedName("testmod.test.item.variant");
         this.setMaxStackSize(0);
         this.setHasSubtypes(true);

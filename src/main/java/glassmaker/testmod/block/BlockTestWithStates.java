@@ -7,9 +7,9 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockTestWithStates extends Block {
 
     protected BlockTestWithStates() {
-        super(Material.rock);
+        super(Material.ROCK);
         this.setUnlocalizedName("testmod.test.block.with.states");
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
 }

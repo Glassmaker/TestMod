@@ -18,12 +18,12 @@ import net.minecraft.world.World;
 public class BlockTestWithDirection extends Block{
 
     public BlockTestWithDirection() {
-        super(Material.rock);
+        super(Material.ROCK);
         this.setHardness(3.3F);
         this.setResistance(3.3F);
         this.setHarvestLevel("pickaxe", 1);
         this.setUnlocalizedName("testmod.test.direction");
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
     
     @Override
@@ -60,13 +60,13 @@ public class BlockTestWithDirection extends Block{
 
         for (int i=0; i < playerInventory.getSizeInventory(); i++) {
             ItemStack stackInSlot = playerInventory.getStackInSlot(i);
-            if (stackInSlot != null && stackInSlot.getItem() == Items.diamond){
+            if (stackInSlot != null && stackInSlot.getItem() == Items.DIAMOND){
                 
                 // Remove diamond as payment
                 playerInventory.decrStackSize(i, 1);
                 
                 // Give goods :)
-                boolean added = playerInventory.addItemStackToInventory(new ItemStack(Items.cooked_mutton));                
+                boolean added = playerInventory.addItemStackToInventory(new ItemStack(Items.COOKED_MUTTON));                
                 if (added){
                     // do extra stuff :)
                 }

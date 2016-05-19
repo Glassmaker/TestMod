@@ -16,9 +16,9 @@ import net.minecraft.world.World;
 public class BlockTest extends Block {
 
     public BlockTest() {
-        super(Material.rock);
+        super(Material.ROCK);
         this.setUnlocalizedName("testmod.test.block");
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         this.setResistance(3.3F);
         this.setHardness(3.3F);
         this.setHarvestLevel("pickaxe", 1);
@@ -32,7 +32,7 @@ public class BlockTest extends Block {
             return true;
         }
 
-        worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.entity_donkey_ambient,
+        worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ENTITY_DONKEY_AMBIENT,
                 SoundCategory.BLOCKS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
 
         return true;
@@ -44,7 +44,7 @@ public class BlockTest extends Block {
             return;
         }
 
-        worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.entity_bat_ambient,
+        worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ENTITY_BAT_AMBIENT,
                 SoundCategory.BLOCKS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
     }
 

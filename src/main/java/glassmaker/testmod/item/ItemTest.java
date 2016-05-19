@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 public class ItemTest extends Item {
 
     public ItemTest() {
-        this.setCreativeTab(CreativeTabs.tabDecorations);
+        this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setUnlocalizedName("testmod.test.item");
         this.setMaxStackSize(64);
     }

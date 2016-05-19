@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 
 public class ItemTestLayered extends Item {
     public ItemTestLayered() {
-        this.setCreativeTab(CreativeTabs.tabDecorations);
+        this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setUnlocalizedName("testmod.test.item.layered");
         this.setMaxStackSize(64);
     }
