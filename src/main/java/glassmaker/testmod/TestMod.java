@@ -6,6 +6,7 @@ import glassmaker.testmod.item.ItemTest;
 import glassmaker.testmod.item.ItemTestLayered;
 import glassmaker.testmod.item.ItemTestVariant;
 import glassmaker.testmod.proxy.IProxy;
+import glassmaker.testmod.recipes.RecipeManager;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -69,7 +70,7 @@ public class TestMod {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        
+        RecipeManager.register();
     }
 
     @EventHandler
