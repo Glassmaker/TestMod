@@ -23,7 +23,7 @@ public class ItemTestVariant extends Item {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
         for (int i = 0; i < 4; i++) {
             subItems.add(new ItemStack(this, 1, i));
         }
