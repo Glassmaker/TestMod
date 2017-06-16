@@ -66,11 +66,13 @@ public class TestMod {
         GameRegistry.register(itemDirectionBlock);
         
         proxy.registerRenderers();
+        
+        RecipeManager.register();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        RecipeManager.register();
+        
     }
 
     @EventHandler
