@@ -16,6 +16,7 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class RecipeManager {
 
@@ -39,7 +40,8 @@ public class RecipeManager {
 		int height = pattern.length;
 		NonNullList<Ingredient> IngredientPattern = buildIngredientPattern(pattern, ingredientKeyMap, width, height);
 		IRecipe shapedRecipe = new ShapedRecipes(group, width, height, IngredientPattern, output);
-		CraftingManager.func_193372_a(Identifier, shapedRecipe);
+		shapedRecipe.setRegistryName(Identifier);
+		GameRegistry.register(shapedRecipe);
 	}
 
 	private static NonNullList<Ingredient> buildIngredientPattern(String[] pattern,
@@ -79,6 +81,7 @@ public class RecipeManager {
 		}
 
 		IRecipe shapelessRecipe = new ShapelessRecipes(group, output, ingredientList);
-		CraftingManager.func_193372_a(identifier, shapelessRecipe);
+		shapelessRecipe.setRegistryName(identifier);
+		GameRegistry.register(shapelessRecipe);
 	}
 }
