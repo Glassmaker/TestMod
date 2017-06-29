@@ -13,6 +13,9 @@ public class ClientProxy implements IProxy {
         // Normal Block.
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(TestMod.block), 0, new ModelResourceLocation("testmod:test_block", "inventory"));
         
+        // Block with Forge blockstate.
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(TestMod.blockForge), 0, new ModelResourceLocation("testmod:test_block_forge", "inventory"));
+        
         // Direction Block.
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(TestMod.directionBlock), 0, new ModelResourceLocation("testmod:test_direction_block", "inventory"));
 

@@ -24,6 +24,9 @@ public class RegistryHandler {
 		
 		TestMod.block = new BlockTest().setRegistryName("test_block");
 		registry.register(TestMod.block);
+		
+		TestMod.blockForge = new BlockTest().setRegistryName("test_block_forge");
+		registry.register(TestMod.blockForge);
         
 		TestMod.directionBlock = new BlockTestWithDirection().setRegistryName("test_direction_block");
 		registry.register(TestMod.directionBlock);
@@ -46,6 +49,9 @@ public class RegistryHandler {
 
         Item itemBlock = new ItemBlock(TestMod.block).setRegistryName("test_block");
         registry.register(itemBlock);
+        
+        Item itemForgeBlock = new ItemBlock(TestMod.blockForge).setRegistryName("test_block_forge");
+        registry.register(itemForgeBlock);
         
         Item itemDirectionBlock = new ItemBlock(TestMod.directionBlock).setRegistryName("test_direction_block");
         registry.register(itemDirectionBlock);

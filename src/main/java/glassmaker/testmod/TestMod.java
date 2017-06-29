@@ -20,6 +20,7 @@ public class TestMod {
     public static final String VERSION = "1.0.0";
 
     public static Block block;
+    public static Block blockForge;
     public static Block directionBlock;
     public static Item item;
     public static Item itemLayered;
