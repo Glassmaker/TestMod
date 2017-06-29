@@ -9,6 +9,7 @@ import glassmaker.testmod.item.ItemTestVariant;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -48,8 +49,11 @@ public class RegistryHandler {
         
         Item itemDirectionBlock = new ItemBlock(TestMod.directionBlock).setRegistryName("test_direction_block");
         registry.register(itemDirectionBlock);
-        
-        TestMod.proxy.registerRenderers();
+	}
+	
+	@SubscribeEvent
+	public static void registerModels(ModelRegistryEvent event) {
+		TestMod.proxy.registerRenderers();
 	}
 
 }
