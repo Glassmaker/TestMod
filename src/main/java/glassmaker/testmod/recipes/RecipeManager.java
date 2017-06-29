@@ -15,22 +15,28 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.registries.IForgeRegistry;
 
 public class RecipeManager {
+	
+	private static IForgeRegistry<IRecipe> registry;
 
-	public static void register() {
+	public static void register(IForgeRegistry<IRecipe> recipeRegistry) {
 
+		registry = recipeRegistry;
+		
 		String[] pattern = { "ccc", "cac", "ccc" };
 		Map<String, Ingredient> keyMap = Maps.newHashMap();
-		keyMap.put("c", Ingredient.func_193369_a(new ItemStack(Items.COAL)));
-		keyMap.put("a", Ingredient.func_193369_a(new ItemStack(Items.APPLE)));
+		keyMap.put("c", Ingredient.fromStacks(new ItemStack(Items.COAL)));
+		keyMap.put("a", Ingredient.fromStacks(new ItemStack(Items.APPLE)));
 
 		addShapedRecipe(new ResourceLocation("testmod:test_shaped_recipe"), "", pattern, keyMap,
 				new ItemStack(TestMod.block));
 
 		addShapelessRecipe(new ResourceLocation("testmod:test_shapeless_recipe"), "", new ItemStack(TestMod.block),
 				new ItemStack(Items.APPLE), new ItemStack(Items.STICK));
+		
+		registry = null;
 	}
 
 	private static void addShapedRecipe(ResourceLocation Identifier, String group, String[] pattern,
@@ -40,13 +46,13 @@ public class RecipeManager {
 		NonNullList<Ingredient> IngredientPattern = buildIngredientPattern(pattern, ingredientKeyMap, width, height);
 		IRecipe shapedRecipe = new ShapedRecipes(group, width, height, IngredientPattern, output);
 		shapedRecipe.setRegistryName(Identifier);
-		GameRegistry.register(shapedRecipe);
+		registry.register(shapedRecipe);
 	}
 
 	private static NonNullList<Ingredient> buildIngredientPattern(String[] pattern,
 			Map<String, Ingredient> ingredientKeyMap, int patternWidth, int patternHeight) {
 		NonNullList<Ingredient> ingredientPattern = NonNullList.<Ingredient>withSize(patternWidth * patternHeight,
-				Ingredient.field_193370_a);
+				Ingredient.EMPTY);
 		Set<String> set = Sets.newHashSet(ingredientKeyMap.keySet());
 		set.remove(" ");
 
@@ -76,11 +82,11 @@ public class RecipeManager {
 		NonNullList<Ingredient> ingredientList = NonNullList.<Ingredient>create();
 
 		for (ItemStack ingredient : ingredients) {
-			ingredientList.add(Ingredient.func_193369_a(ingredient));
+			ingredientList.add(Ingredient.fromStacks(ingredient));
 		}
 
 		IRecipe shapelessRecipe = new ShapelessRecipes(group, output, ingredientList);
 		shapelessRecipe.setRegistryName(identifier);
-		GameRegistry.register(shapelessRecipe);
+		registry.register(shapelessRecipe);
 	}
 }

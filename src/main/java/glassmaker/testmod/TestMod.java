@@ -1,15 +1,8 @@
 package glassmaker.testmod;
 
-import glassmaker.testmod.block.BlockTest;
-import glassmaker.testmod.block.BlockTestWithDirection;
-import glassmaker.testmod.item.ItemTest;
-import glassmaker.testmod.item.ItemTestLayered;
-import glassmaker.testmod.item.ItemTestVariant;
 import glassmaker.testmod.proxy.IProxy;
-import glassmaker.testmod.recipes.RecipeManager;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -17,7 +10,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = TestMod.MODID, name = TestMod.MODNAME, version = TestMod.VERSION)
@@ -45,34 +37,12 @@ public class TestMod {
     public void preinit(FMLPreInitializationEvent event) {
 
         log = event.getModLog();
-
-        item = new ItemTest().setRegistryName("test_item");
-        GameRegistry.register(item);
-
-        itemLayered = new ItemTestLayered().setRegistryName("test_item_layered");
-        GameRegistry.register(itemLayered);
         
-        itemVariant = new ItemTestVariant().setRegistryName("test_item_variant");
-        GameRegistry.register(itemVariant);
-
-        block = new BlockTest().setRegistryName("test_block");
-        block = GameRegistry.register(block);
-        Item itemBlock = new ItemBlock(block).setRegistryName("test_block");
-        GameRegistry.register(itemBlock);
-        
-        directionBlock = new BlockTestWithDirection().setRegistryName("test_direction_block");
-        directionBlock = GameRegistry.register(directionBlock);
-        Item itemDirectionBlock = new ItemBlock(directionBlock).setRegistryName("test_direction_block");
-        GameRegistry.register(itemDirectionBlock);
-        
-        proxy.registerRenderers();
-        
-        RecipeManager.register();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        
+    	
     }
 
     @EventHandler
