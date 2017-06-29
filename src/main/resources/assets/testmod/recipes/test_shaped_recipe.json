@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"ccc",
+    "cac",
+    "ccc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:coal",
+      "data": 0
+    },
+    "a": {
+      "item": "minecraft:apple",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "testmod:test_block"
+  }
+}

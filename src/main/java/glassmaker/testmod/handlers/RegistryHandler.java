@@ -6,11 +6,9 @@ import glassmaker.testmod.block.BlockTestWithDirection;
 import glassmaker.testmod.item.ItemTest;
 import glassmaker.testmod.item.ItemTestLayered;
 import glassmaker.testmod.item.ItemTestVariant;
-import glassmaker.testmod.recipes.RecipeManager;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -52,11 +50,6 @@ public class RegistryHandler {
         registry.register(itemDirectionBlock);
         
         TestMod.proxy.registerRenderers();
-	}
-	
-	@SubscribeEvent
-	public static void registerRecipes(Register<IRecipe> event) {
-		RecipeManager.register(event.getRegistry());
 	}
 
 }
