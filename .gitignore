@@ -12,6 +12,7 @@ Thumbs.db
 .project
 .settings/
 /run
+/logs
 
 #################
 ## Eclipse
