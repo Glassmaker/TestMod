@@ -1,12 +1,11 @@
 package glassmaker.testmod.item;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 
 public class ItemTestLayered extends Item {
     public ItemTestLayered() {
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
-        this.setUnlocalizedName("testmod.test.item.layered");
-        this.setMaxStackSize(64);
+    	super(new Item.Properties().group(ItemGroup.DECORATIONS).maxStackSize(64));
+        //this.setUnlocalizedName("testmod.test.item.layered");
     }
 }

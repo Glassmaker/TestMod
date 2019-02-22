@@ -9,10 +9,11 @@ import glassmaker.testmod.item.ItemTestVariant;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent.Register;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 @EventBusSubscriber
@@ -47,13 +48,13 @@ public class RegistryHandler {
         TestMod.itemVariant = new ItemTestVariant().setRegistryName("test_item_variant");
         registry.register(TestMod.itemVariant);
 
-        Item itemBlock = new ItemBlock(TestMod.block).setRegistryName("test_block");
+        Item itemBlock = new ItemBlock(TestMod.block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName("test_block");
         registry.register(itemBlock);
         
-        Item itemForgeBlock = new ItemBlock(TestMod.blockForge).setRegistryName("test_block_forge");
+        Item itemForgeBlock = new ItemBlock(TestMod.blockForge, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName("test_block_forge");
         registry.register(itemForgeBlock);
         
-        Item itemDirectionBlock = new ItemBlock(TestMod.directionBlock).setRegistryName("test_direction_block");
+        Item itemDirectionBlock = new ItemBlock(TestMod.directionBlock, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName("test_direction_block");
         registry.register(itemDirectionBlock);
 	}
 	

@@ -1,21 +1,16 @@
 package glassmaker.testmod.item;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.item.ItemGroup;
 
 public class ItemTestVariant extends Item {
     public ItemTestVariant() {
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
-        this.setUnlocalizedName("testmod.test.item.variant");
-        this.setMaxStackSize(0);
-        this.setHasSubtypes(true);
+    	super(new Item.Properties().group(ItemGroup.DECORATIONS).maxStackSize(0));
+        //this.setUnlocalizedName("testmod.test.item.variant");
+        //this.setHasSubtypes(true);
     }
 
-    @Override
+    /*@Override
     public String getUnlocalizedName(ItemStack stack) {
 
         return getUnlocalizedName() + "." + stack.getMetadata();
@@ -27,5 +22,5 @@ public class ItemTestVariant extends Item {
         for (int i = 0; i < 4; i++) {
             subItems.add(new ItemStack(this, 1, i));
         }
-    }
+    }*/
 }
